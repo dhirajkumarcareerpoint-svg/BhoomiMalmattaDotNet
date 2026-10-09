@@ -1,0 +1,826 @@
+{
+    "generatedAtUtc":  "2026-09-30T12:23:49.3792455Z",
+    "database":  "SMC_BhoomiMalmatta",
+    "vocabulary":  [
+                       {
+                           "source":  "AppDocs.DocumentType",
+                           "value":  "AddressProof",
+                           "n":  21
+                       },
+                       {
+                           "source":  "AppDocs.DocumentType",
+                           "value":  "IdentityProof",
+                           "n":  21
+                       },
+                       {
+                           "source":  "AppDocs.DocumentType",
+                           "value":  "Level1Correction",
+                           "n":  1
+                       },
+                       {
+                           "source":  "AppDocs.DocumentType",
+                           "value":  "Level1CorrectionProof",
+                           "n":  1
+                       },
+                       {
+                           "source":  "AppDocs.DocumentType",
+                           "value":  "Level2Correction",
+                           "n":  8
+                       },
+                       {
+                           "source":  "AppDocs.DocumentType",
+                           "value":  "आधार कार्ड",
+                           "n":  3
+                       },
+                       {
+                           "source":  "AppDocs.DocumentType",
+                           "value":  "ओळखपत्र",
+                           "n":  21
+                       },
+                       {
+                           "source":  "AppDocs.VerificationStatus",
+                           "value":  "Checked",
+                           "n":  20
+                       },
+                       {
+                           "source":  "AppDocs.VerificationStatus",
+                           "value":  "Responded",
+                           "n":  4
+                       },
+                       {
+                           "source":  "AppDocs.VerificationStatus",
+                           "value":  "Resubmitted",
+                           "n":  1
+                       },
+                       {
+                           "source":  "AppDocs.VerificationStatus",
+                           "value":  "Unchecked",
+                           "n":  51
+                       },
+                       {
+                           "source":  "Apps.BusinessType",
+                           "value":  null,
+                           "n":  6
+                       },
+                       {
+                           "source":  "Apps.BusinessType",
+                           "value":  "FirecrackerStall",
+                           "n":  25
+                       },
+                       {
+                           "source":  "Apps.BusinessType",
+                           "value":  "GanpatiIdolStall",
+                           "n":  10
+                       },
+                       {
+                           "source":  "Apps.BusinessType",
+                           "value":  "Other",
+                           "n":  25
+                       },
+                       {
+                           "source":  "Apps.BusinessType",
+                           "value":  "RangpanchamiStall",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Apps.City",
+                           "value":  "???????",
+                           "n":  6
+                       },
+                       {
+                           "source":  "Apps.City",
+                           "value":  "Solapur",
+                           "n":  60
+                       },
+                       {
+                           "source":  "Apps.City",
+                           "value":  "सोलापूर",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Apps.District",
+                           "value":  "???????",
+                           "n":  6
+                       },
+                       {
+                           "source":  "Apps.District",
+                           "value":  "Solapur",
+                           "n":  60
+                       },
+                       {
+                           "source":  "Apps.District",
+                           "value":  "सोलापूर",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Apps.PaymentStatus",
+                           "value":  "Fee Pending",
+                           "n":  8
+                       },
+                       {
+                           "source":  "Apps.PaymentStatus",
+                           "value":  "PaymentDone",
+                           "n":  29
+                       },
+                       {
+                           "source":  "Apps.PaymentStatus",
+                           "value":  "PaymentRequired",
+                           "n":  14
+                       },
+                       {
+                           "source":  "Apps.PaymentStatus",
+                           "value":  "PendingOSAmount",
+                           "n":  16
+                       },
+                       {
+                           "source":  "Apps.ProcessingRoute",
+                           "value":  "Legacy",
+                           "n":  67
+                       },
+                       {
+                           "source":  "Apps.ServiceType",
+                           "value":  "Abhyasika",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Apps.ServiceType",
+                           "value":  "MajorGaala",
+                           "n":  3
+                       },
+                       {
+                           "source":  "Apps.ServiceType",
+                           "value":  "MiniGaala",
+                           "n":  3
+                       },
+                       {
+                           "source":  "Apps.ServiceType",
+                           "value":  "VariousBusinessSpace",
+                           "n":  60
+                       },
+                       {
+                           "source":  "Apps.State",
+                           "value":  "??????????",
+                           "n":  6
+                       },
+                       {
+                           "source":  "Apps.State",
+                           "value":  "Maharashtra",
+                           "n":  60
+                       },
+                       {
+                           "source":  "Apps.State",
+                           "value":  "महाराष्ट्र",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Apps.Status",
+                           "value":  "ApprovalPending",
+                           "n":  7
+                       },
+                       {
+                           "source":  "Apps.Status",
+                           "value":  "Approved",
+                           "n":  20
+                       },
+                       {
+                           "source":  "Apps.Status",
+                           "value":  "FeePending",
+                           "n":  16
+                       },
+                       {
+                           "source":  "Apps.Status",
+                           "value":  "Rejected",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Apps.Status",
+                           "value":  "Submitted",
+                           "n":  19
+                       },
+                       {
+                           "source":  "Apps.Status",
+                           "value":  "UnderScrutiny",
+                           "n":  3
+                       },
+                       {
+                           "source":  "Apps.Taluka",
+                           "value":  "????? ???????",
+                           "n":  3
+                       },
+                       {
+                           "source":  "Apps.Taluka",
+                           "value":  "??????? ??? ????",
+                           "n":  5
+                       },
+                       {
+                           "source":  "Apps.Taluka",
+                           "value":  "North",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Apps.Taluka",
+                           "value":  "Solapur",
+                           "n":  10
+                       },
+                       {
+                           "source":  "Apps.Taluka",
+                           "value":  "Solapur North",
+                           "n":  23
+                       },
+                       {
+                           "source":  "Apps.Taluka",
+                           "value":  "उत्तर सोलापूर",
+                           "n":  8
+                       },
+                       {
+                           "source":  "Apps.Taluka",
+                           "value":  "सोलापूर शहर मध्य",
+                           "n":  17
+                       },
+                       {
+                           "source":  "Apps.Zone",
+                           "value":  "",
+                           "n":  67
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Application Submitted",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "ApplicationSubmitted",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Certificate Generated",
+                           "n":  19
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "CertificateGenerated",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Create",
+                           "n":  42
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Delete",
+                           "n":  116
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Final Approved",
+                           "n":  19
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Final Submission",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "FinalApproved",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Forwarded to AC",
+                           "n":  14
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "JE Rejected",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "JE Returned for Correction",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "JE Verified",
+                           "n":  46
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "OS Returned for Correction",
+                           "n":  4
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "OS verified document",
+                           "n":  44
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Payment Done",
+                           "n":  14
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Payment Request Sent",
+                           "n":  42
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Payment Submitted",
+                           "n":  3
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "PaymentDone",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "PaymentRequestSent",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Transfer Request",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.Action",
+                           "value":  "Update",
+                           "n":  853
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "AllocationProcess",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "Complaint",
+                           "n":  6
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "DemandApplication",
+                           "n":  522
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "DemandApplicationDocument",
+                           "n":  87
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "DemandApplicationWorkflow",
+                           "n":  545
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "Document",
+                           "n":  4
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "GalaTransfer",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "LandRegistration",
+                           "n":  8
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "Property",
+                           "n":  6
+                       },
+                       {
+                           "source":  "Audit.EntityName",
+                           "value":  "SmsEvent",
+                           "n":  48
+                       },
+                       {
+                           "source":  "Sms.EventType",
+                           "value":  "ApplicationSubmitted",
+                           "n":  26
+                       },
+                       {
+                           "source":  "Sms.EventType",
+                           "value":  "AssistantCommissionerNotification",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Sms.EventType",
+                           "value":  "PaymentRequired",
+                           "n":  13
+                       },
+                       {
+                           "source":  "Sms.Status",
+                           "value":  "Failed",
+                           "n":  36
+                       },
+                       {
+                           "source":  "Sms.Status",
+                           "value":  "Suppressed",
+                           "n":  4
+                       },
+                       {
+                           "source":  "SmsTemplates.ApprovalStatus",
+                           "value":  "Approved",
+                           "n":  3
+                       },
+                       {
+                           "source":  "SmsTemplates.ApprovalStatus",
+                           "value":  "PendingApproval",
+                           "n":  2
+                       },
+                       {
+                           "source":  "SmsTemplates.EventType",
+                           "value":  "ApplicationApproved",
+                           "n":  1
+                       },
+                       {
+                           "source":  "SmsTemplates.EventType",
+                           "value":  "ApplicationSubmitted",
+                           "n":  1
+                       },
+                       {
+                           "source":  "SmsTemplates.EventType",
+                           "value":  "AssistantCommissionerNotification",
+                           "n":  1
+                       },
+                       {
+                           "source":  "SmsTemplates.EventType",
+                           "value":  "CertificateAvailable",
+                           "n":  1
+                       },
+                       {
+                           "source":  "SmsTemplates.EventType",
+                           "value":  "PaymentRequired",
+                           "n":  1
+                       },
+                       {
+                           "source":  "SmsTemplates.Language",
+                           "value":  "mr",
+                           "n":  5
+                       },
+                       {
+                           "source":  "Users.IsActive",
+                           "value":  "0",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Users.IsActive",
+                           "value":  "1",
+                           "n":  16
+                       },
+                       {
+                           "source":  "Users.PasswordHashShape",
+                           "value":  "bcrypt-like",
+                           "n":  17
+                       },
+                       {
+                           "source":  "Users.Role",
+                           "value":  "Admin",
+                           "n":  1
+                       },
+                       {
+                           "source":  "Users.Role",
+                           "value":  "AssistantCommissioner",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Users.Role",
+                           "value":  "JE",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Users.Role",
+                           "value":  "OS",
+                           "n":  2
+                       },
+                       {
+                           "source":  "Users.Role",
+                           "value":  "Staff",
+                           "n":  10
+                       },
+                       {
+                           "source":  "Users.ZoneNumber",
+                           "value":  null,
+                           "n":  17
+                       },
+                       {
+                           "source":  "Workflow.PaymentStatus",
+                           "value":  "NotRequired",
+                           "n":  16
+                       },
+                       {
+                           "source":  "Workflow.PaymentStatus",
+                           "value":  "PaymentDone",
+                           "n":  29
+                       },
+                       {
+                           "source":  "Workflow.PaymentStatus",
+                           "value":  "PaymentRequired",
+                           "n":  14
+                       },
+                       {
+                           "source":  "Workflow.Stage",
+                           "value":  "Approved",
+                           "n":  20
+                       },
+                       {
+                           "source":  "Workflow.Stage",
+                           "value":  "AssistantCommissionerApprovalPending",
+                           "n":  7
+                       },
+                       {
+                           "source":  "Workflow.Stage",
+                           "value":  "JEPending",
+                           "n":  11
+                       },
+                       {
+                           "source":  "Workflow.Stage",
+                           "value":  "OSPending",
+                           "n":  3
+                       },
+                       {
+                           "source":  "Workflow.Stage",
+                           "value":  "PaymentRequired",
+                           "n":  16
+                       },
+                       {
+                           "source":  "Workflow.Stage",
+                           "value":  "Rejected",
+                           "n":  2
+                       }
+                   ],
+    "serviceRates":  [
+                         {
+                             "Id":  6,
+                             "ServiceCode":  "Abhyasika",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  9,
+                             "ServiceCode":  "AdhikrutKhoke",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  7,
+                             "ServiceCode":  "Gaale256",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  4,
+                             "ServiceCode":  "LandFee",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  2,
+                             "ServiceCode":  "MajorGaala",
+                             "Rate":  50000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  1,
+                             "ServiceCode":  "MiniGaala",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  10,
+                             "ServiceCode":  "OtherMunicipalProperty",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  5,
+                             "ServiceCode":  "SamajMandir",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  8,
+                             "ServiceCode":  "TP3_23",
+                             "Rate":  20000.00,
+                             "Unit":  "fixed",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         },
+                         {
+                             "Id":  3,
+                             "ServiceCode":  "VariousBusinessSpace",
+                             "Rate":  null,
+                             "Unit":  "sq.ft.",
+                             "IsActive":  true,
+                             "IsDeleted":  false
+                         }
+                     ],
+    "services":  [
+                     {
+                         "Id":  1,
+                         "Value":  1,
+                         "Code":  "MiniGaala",
+                         "Name":  "Mini Gaala",
+                         "NameMr":  "मिनी गाळे",
+                         "SortOrder":  1,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  2,
+                         "Value":  2,
+                         "Code":  "MajorGaala",
+                         "Name":  "Major Gaala",
+                         "NameMr":  "मेजर गाळे",
+                         "SortOrder":  2,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  3,
+                         "Value":  3,
+                         "Code":  "VariousBusinessSpace",
+                         "Name":  "Various business space",
+                         "NameMr":  "विविध व्यवसायासाठी जागा मागणी",
+                         "SortOrder":  3,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  4,
+                         "Value":  4,
+                         "Code":  "LandFee",
+                         "Name":  "Land Fee",
+                         "NameMr":  "Land Fee (भुई भाडे)",
+                         "SortOrder":  4,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  5,
+                         "Value":  5,
+                         "Code":  "SamajMandir",
+                         "Name":  "Samaj Mandir",
+                         "NameMr":  "समाज मंदिर",
+                         "SortOrder":  5,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  6,
+                         "Value":  6,
+                         "Code":  "Abhyasika",
+                         "Name":  "Abhyasika",
+                         "NameMr":  "अभ्यासिका",
+                         "SortOrder":  6,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  7,
+                         "Value":  7,
+                         "Code":  "Gaale256",
+                         "Name":  "256 Gaale",
+                         "NameMr":  "256 गाळे",
+                         "SortOrder":  7,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  8,
+                         "Value":  8,
+                         "Code":  "TP3_23",
+                         "Name":  "TP-3/23",
+                         "NameMr":  "TP-3/23",
+                         "SortOrder":  8,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  9,
+                         "Value":  9,
+                         "Code":  "AdhikrutKhoke",
+                         "Name":  "Authorised kiosks",
+                         "NameMr":  "अधिकृत खोके",
+                         "SortOrder":  9,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     },
+                     {
+                         "Id":  10,
+                         "Value":  10,
+                         "Code":  "OtherMunicipalProperty",
+                         "Name":  "Other municipal property",
+                         "NameMr":  "इतर भाडेतत्त्वावरील मनपा मालमत्ता",
+                         "SortOrder":  10,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     }
+                 ],
+    "businessTypes":  [
+                          {
+                              "Id":  1,
+                              "Value":  1,
+                              "Code":  "FirecrackerStall",
+                              "Name":  "Firecracker Stall",
+                              "NameMr":  "फटाके स्टॉल",
+                              "SortOrder":  1,
+                              "IsActive":  true,
+                              "IsDeleted":  false
+                          },
+                          {
+                              "Id":  2,
+                              "Value":  2,
+                              "Code":  "GanpatiIdolStall",
+                              "Name":  "Ganesh idol Stall",
+                              "NameMr":  "गणपती मूर्ती स्टॉल",
+                              "SortOrder":  2,
+                              "IsActive":  true,
+                              "IsDeleted":  false
+                          },
+                          {
+                              "Id":  3,
+                              "Value":  3,
+                              "Code":  "RangpanchamiStall",
+                              "Name":  "Rangpanchami Stall",
+                              "NameMr":  "रंगपंचमी स्टॉल",
+                              "SortOrder":  3,
+                              "IsActive":  true,
+                              "IsDeleted":  false
+                          },
+                          {
+                              "Id":  4,
+                              "Value":  4,
+                              "Code":  "RakshabandhanStall",
+                              "Name":  "Rakhi Stall",
+                              "NameMr":  "रक्षाबंधन स्टॉल",
+                              "SortOrder":  4,
+                              "IsActive":  true,
+                              "IsDeleted":  false
+                          },
+                          {
+                              "Id":  5,
+                              "Value":  5,
+                              "Code":  "DiwaliFaralStall",
+                              "Name":  "Diwali Faral Stall",
+                              "NameMr":  "दिवाळी फराळ स्टॉल",
+                              "SortOrder":  5,
+                              "IsActive":  true,
+                              "IsDeleted":  false
+                          },
+                          {
+                              "Id":  6,
+                              "Value":  6,
+                              "Code":  "Other",
+                              "Name":  "Other",
+                              "NameMr":  "Other",
+                              "SortOrder":  6,
+                              "IsActive":  true,
+                              "IsDeleted":  false
+                          },
+                          {
+                              "Id":  7,
+                              "Value":  7,
+                              "Code":  "DiwaliFirecrackerStall",
+                              "Name":  "Diwali Firecracker Stall",
+                              "NameMr":  "दिवाळी फटाके स्टॉल",
+                              "SortOrder":  7,
+                              "IsActive":  true,
+                              "IsDeleted":  false
+                          }
+                      ],
+    "numberConfig":  {
+                         "Id":  1,
+                         "Prefix":  "2026",
+                         "YearStrategy":  "Fixed",
+                         "SequenceLength":  4,
+                         "NextNumber":  5,
+                         "IsActive":  true,
+                         "IsDeleted":  false
+                     }
+}

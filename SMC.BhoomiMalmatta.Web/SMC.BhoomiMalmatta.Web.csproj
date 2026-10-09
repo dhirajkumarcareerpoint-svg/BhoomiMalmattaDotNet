@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion></ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6A1B2C3D-0004-4A5B-9C04-A1B2C3D4E504}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMC.BhoomiMalmatta.Web</RootNamespace>
+    <AssemblyName>SMC.BhoomiMalmatta.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>7.3</LangVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Deterministic>true</Deterministic>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <GenerateBindingRedirectsOutputType>false</GenerateBindingRedirectsOutputType>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core">
+      <Version>5.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost">
+      <Version>5.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="BCrypt.Net-Next">
+      <Version>4.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="QuestPDF">
+      <Version>2022.12.15</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>6.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\properties.js" />
+    <Content Include="AccessDenied.aspx" />
+    <Content Include="App_Data\Fonts\NotoSansDevanagari-Bold.ttf" />
+    <Content Include="App_Data\Fonts\NotoSansDevanagari-Regular.ttf" />
+    <Content Include="App_Data\Fonts\NotoSans-Variable.ttf" />
+    <Content Include="App_Data\Fonts\NotoSans-OFL.txt" />
+    <Content Include="App_Data\Fonts\OFL.txt" />
+    <Content Include="Apply.aspx" />
+    <Content Include="RecoverAccess.aspx" />
+    <Content Include="Auth.Master" />
+    <Content Include="Citizen\Dashboard.aspx" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="PaymentQr.ashx" />
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\img\.gitkeep" />
+    <Content Include="Content\payment\qr.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="Department\ApplicationDetail.aspx" />
+    <Content Include="Department\Applications.aspx" />
+    <Content Include="Department\Controls\OfficerFilterBar.ascx" />
+    <Content Include="Department\Controls\OfficerKpiCards.ascx" />
+    <Content Include="Department\Controls\OfficerPager.ascx" />
+    <Content Include="Department\Controls\OfficerPendingGrid.ascx" />
+    <Content Include="Department\AuditLogs.aspx" />
+    <Content Include="Department\Dashboard.aspx" />
+    <Content Include="Department\Masters.aspx" />
+    <Content Include="Department\Reports.aspx" />
+    <Content Include="Department\Users.aspx" />
+    <Content Include="Department\Properties.aspx" />
+    <Content Include="Department\Tenders.aspx" />
+    <Content Include="Department\Transfers.aspx" />
+    <Content Include="Department\Calculations.aspx" />
+    <Content Include="Department\Recovery.aspx" />
+    <Content Include="Department\Schemes.aspx" />
+    <Content Include="Download.ashx" />
+    <Content Include="Error.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Health.ashx" />
+    <Content Include="Login.aspx" />
+    <Content Include="NotFound.aspx" />
+    <Content Include="Scripts\site.js" />
+    <Content Include="Site.Master" />
+    <Content Include="Status.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Department\Properties.aspx.designer.cs">
+      <DependentUpon>Properties.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PropertyLabels.cs" />
+    <Compile Include="Security\DisplayName.cs" />
+    <Compile Include="Api\PropertiesController.cs" />
+    <Compile Include="AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Apply.aspx.cs">
+      <DependentUpon>Apply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Apply.aspx.designer.cs">
+      <DependentUpon>Apply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth.Master.cs">
+      <DependentUpon>Auth.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth.Master.designer.cs">
+      <DependentUpon>Auth.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Download.ashx.cs">
+      <DependentUpon>Download.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Health.ashx.cs">
+      <DependentUpon>Health.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotFound.aspx.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotFound.aspx.designer.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Status.aspx.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Status.aspx.designer.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecoverAccess.aspx.cs">
+      <DependentUpon>RecoverAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecoverAccess.aspx.designer.cs">
+      <DependentUpon>RecoverAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\AuthCookies.cs" />
+    <Compile Include="Security\CitizenTicketAccess.cs" />
+    <Compile Include="Security\BcryptPasswordVerifier.cs" />
+    <Compile Include="Security\DeptPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\RateLimiter.cs" />
+    <Compile Include="Security\SmcPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\SmcPrincipal.cs" />
+    <Compile Include="Api\ApiBase.cs" />
+    <Compile Include="Api\CoreControllers.cs" />
+    <Compile Include="Api\MoreControllers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AclSmsGateway.cs" />
+    <Compile Include="Services\AppServices.cs" />
+    <Compile Include="Services\ApplyDocumentSelection.cs" />
+    <Compile Include="Services\ApplyWizard.cs" />
+    <Compile Include="Services\ErrorLogger.cs" />
+    <Compile Include="Services\PdfGenerator.cs" />
+    <Compile Include="Services\ReportBuilder.cs" />
+    <Compile Include="Services\OfficerApplicationPageData.cs" />
+    <Compile Include="Services\WorkflowRunner.cs" />
+    <Compile Include="Services\OfficerText.cs" />
+    <Compile Include="Services\OfficerApplicationViewMapper.cs" />
+    <Compile Include="Services\ServiceDisplay.cs" />
+    <Compile Include="PaymentQr.ashx.cs" />
+    <Compile Include="Citizen\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Citizen\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\ApplicationDetail.aspx.cs">
+      <DependentUpon>ApplicationDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\ApplicationDetail.aspx.designer.cs">
+      <DependentUpon>ApplicationDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Applications.aspx.cs">
+      <DependentUpon>Applications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Applications.aspx.designer.cs">
+      <DependentUpon>Applications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerFilterBar.ascx.cs">
+      <DependentUpon>OfficerFilterBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerFilterBar.ascx.designer.cs">
+      <DependentUpon>OfficerFilterBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerKpiCards.ascx.cs">
+      <DependentUpon>OfficerKpiCards.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerKpiCards.ascx.designer.cs">
+      <DependentUpon>OfficerKpiCards.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerPager.ascx.cs">
+      <DependentUpon>OfficerPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerPager.ascx.designer.cs">
+      <DependentUpon>OfficerPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerPendingGrid.ascx.cs">
+      <DependentUpon>OfficerPendingGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Controls\OfficerPendingGrid.ascx.designer.cs">
+      <DependentUpon>OfficerPendingGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\AuditLogs.aspx.cs">
+      <DependentUpon>AuditLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\AuditLogs.aspx.designer.cs">
+      <DependentUpon>AuditLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Masters.aspx.cs">
+      <DependentUpon>Masters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Masters.aspx.designer.cs">
+      <DependentUpon>Masters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Properties.aspx.cs">
+      <DependentUpon>Properties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Tenders.aspx.cs">
+      <DependentUpon>Tenders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Transfers.aspx.cs">
+      <DependentUpon>Transfers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Calculations.aspx.cs">
+      <DependentUpon>Calculations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Recovery.aspx.cs">
+      <DependentUpon>Recovery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Department\Schemes.aspx.cs">
+      <DependentUpon>Schemes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\ModulePage.cs" />
+    <Compile Include="Services\RegisterUi.cs" />
+    <Compile Include="Department\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Start\Composition.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="App_Data\secrets.config.example" />
+    <None Include="Properties\PublishProfiles\IIS-Release-FileSystem.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Business\SMC.BhoomiMalmatta.Business.csproj">
+      <Project>{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}</Project>
+      <Name>SMC.BhoomiMalmatta.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Data\SMC.BhoomiMalmatta.Data.csproj">
+      <Project>{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}</Project>
+      <Name>SMC.BhoomiMalmatta.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Models\SMC.BhoomiMalmatta.Models.csproj">
+      <Project>{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}</Project>
+      <Name>SMC.BhoomiMalmatta.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>58080</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58080/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl></CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

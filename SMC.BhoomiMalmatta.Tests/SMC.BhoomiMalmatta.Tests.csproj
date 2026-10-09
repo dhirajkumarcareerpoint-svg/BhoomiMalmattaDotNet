@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A1B2C3D-0005-4A5B-9C05-A1B2C3D4E505}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SMC.BhoomiMalmatta.Tests</RootNamespace>
+    <AssemblyName>SMC.BhoomiMalmatta.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>7.3</LangVersion>
+    <Deterministic>true</Deterministic>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework"><Version>2.2.10</Version></PackageReference>
+    <PackageReference Include="MSTest.TestAdapter"><Version>2.2.10</Version></PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk"><Version>17.8.0</Version></PackageReference>
+    <PackageReference Include="EntityFramework"><Version>6.4.4</Version></PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PropertiesPageTests.cs" />
+    <Compile Include="PropertyRegisterTests.cs" />
+    <Compile Include="ApplicantDetailsSwitchTests.cs" />
+    <Compile Include="ApplyDocumentSelectionTests.cs" />
+    <Compile Include="ApplyWizardTests.cs" />
+    <Compile Include="ArchitectureAndMappingTests.cs" />
+    <Compile Include="CitizenStatusMapperTests.cs" />
+    <Compile Include="OfficerApplicationModalTests.cs" />
+    <Compile Include="OfficerQueryTranslationTests.cs" />
+    <Compile Include="PaymentProofResubmissionTests.cs" />
+    <Compile Include="PaymentVerificationAndApprovalTests.cs" />
+    <Compile Include="PricingAndRulesTests.cs" />
+    <Compile Include="RegisterRulesTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityTests.cs" />
+    <Compile Include="SubmissionAndWorkflowServiceTests.cs" />
+    <Compile Include="Support\Fakes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Models\SMC.BhoomiMalmatta.Models.csproj"><Project>{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}</Project><Name>SMC.BhoomiMalmatta.Models</Name></ProjectReference>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Business\SMC.BhoomiMalmatta.Business.csproj"><Project>{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}</Project><Name>SMC.BhoomiMalmatta.Business</Name></ProjectReference>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Data\SMC.BhoomiMalmatta.Data.csproj"><Project>{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}</Project><Name>SMC.BhoomiMalmatta.Data</Name></ProjectReference>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Web\SMC.BhoomiMalmatta.Web.csproj"><Project>{6A1B2C3D-0004-4A5B-9C04-A1B2C3D4E504}</Project><Name>SMC.BhoomiMalmatta.Web</Name></ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

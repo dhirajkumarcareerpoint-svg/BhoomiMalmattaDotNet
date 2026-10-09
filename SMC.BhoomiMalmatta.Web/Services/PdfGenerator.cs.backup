@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Web.Hosting;
+using QuestPDF.Drawing;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using SMC.BhoomiMalmatta.Business.Abstractions;
+using SMC.BhoomiMalmatta.Models.Constants;
+using SMC.BhoomiMalmatta.Models.Dto;
+
+namespace SMC.BhoomiMalmatta.Web.Services
+{
+    /// <summary>
+    /// PDF generation with QuestPDF. Marathi (Devanagari) uses the bundled Noto Sans Devanagari font (SIL OFL, App_Data\Fonts), shaped by HarfBuzz
+    /// inside QuestPDF, so conjuncts render correctly. LICENSE NOTE: QuestPDF is free under its Community licence only for eligible organisations;
+    /// Solapur Municipal Corporation must confirm eligibility or buy a licence (see SECURITY.md).
+    /// </summary>
+    public sealed class PdfGenerator : IPdfGenerator
+    {
+        private const string Font = "Noto Sans Devanagari";
+        private static readonly CultureInfo Inv = CultureInfo.InvariantCulture;
+        private static readonly object Gate = new object();
+        private static bool _ready;
+
+        private static void Init()
+        {
+            lock (Gate)
+            {
+                if (_ready) return;
+                QuestPDF.Settings.License = LicenseType.Community;
+                foreach (var f in new[] { "NotoSansDevanagari-Regular.ttf", "NotoSansDevanagari-Bold.ttf" })
+                    using (var s = File.OpenRead(HostingEnvironment.MapPath("~/App_Data/Fonts/" + f))) FontManager.RegisterFont(s);
+                _ready = true;
+            }
+        }
+
+        private static string Ref(ApplicationDetail d, string kind)
+        {
+            using (var sha = SHA256.Create())
+                return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(d.ApplicationNumber + "|" + kind + "|" + d.Status))).Replace("-", "").Substring(0, 12);
+        }
+
+        private static string Money(decimal? v) { return v.HasValue ? "₹ " + v.Value.ToString("N2", Inv) : "—"; }
+        private static string Date(DateTime d) { return d.ToString("dd/MM/yyyy", Inv); }
+        private static string Local(DateTime utc) { return utc.ToLocalTime().ToString("dd/MM/yyyy HH:mm", Inv); }
+
+        private static byte[] Render(string title, PermitConfigRecord cfg, string reference, Action<ColumnDescriptor> body)
+        {
+            Init();
+            return Document.Create(doc => doc.Page(page =>
+            {
+                page.Size(PageSizes.A4); page.Margin(36);
+                page.DefaultTextStyle(x => x.FontFamily(Font).FontSize(11));
+                page.Header().Column(h =>
+                {
+                    h.Item().AlignCenter().Text(cfg.OrganizationName ?? "सोलापूर महानगरपालिका").FontSize(18).Bold();
+                    if (!string.IsNullOrWhiteSpace(cfg.DepartmentName)) h.Item().AlignCenter().Text(cfg.DepartmentName).FontSize(12);
+                    h.Item().AlignCenter().PaddingTop(4).Text(title).FontSize(15).Bold();
+                    h.Item().PaddingTop(6).LineHorizontal(1);
+                });
+                page.Content().PaddingVertical(10).Column(body);
+                page.Footer().Column(f =>
+                {
+                    f.Item().LineHorizontal(0.5f);
+                    f.Item().Row(r =>
+                    {
+                        r.RelativeItem().Text("संदर्भ ओळख: " + reference + "   |   तयार केले: " + Local(DateTime.UtcNow)).FontSize(8);
+                        r.ConstantItem(80).AlignRight().Text(t => { t.Span("पान ").FontSize(8); t.CurrentPageNumber().FontSize(8); });
+                    });
+                    if (!string.IsNullOrWhiteSpace(cfg.FooterText)) f.Item().Text(cfg.FooterText).FontSize(8);
+                });
+            })).GeneratePdf();
+        }
+
+        private static void Row(ColumnDescriptor c, string k, string v)
+        {
+            c.Item().PaddingVertical(2).Row(r => { r.ConstantItem(170).Text(k).Bold(); r.RelativeItem().Text(v ?? "—"); });
+        }
+
+        private static void Core(ColumnDescriptor c, ApplicationDetail d)
+        {
+            Row(c, "अर्ज क्रमांक", d.ApplicationNumber); Row(c, "अर्जदाराचे नाव", d.ApplicantName);
+            Row(c, "सेवा", d.ServiceType + (string.IsNullOrEmpty(d.BusinessType) ? "" : " / " + d.BusinessType));
+            Row(c, "कालावधी", Date(d.StartDate) + " ते " + Date(d.EndDate)); Row(c, "एकूण दिवस", d.TotalDays.ToString());
+            Row(c, "लांबी × रुंदी", (d.LengthFt.HasValue ? d.LengthFt.Value.ToString("0.##", Inv) : "—") + " × " + (d.WidthFt.HasValue ? d.WidthFt.Value.ToString("0.##", Inv) : "—") + " फूट");
+            Row(c, "क्षेत्रफळ (चौ.फूट)", d.AreaSqFt.HasValue ? d.AreaSqFt.Value.ToString("0.##", Inv) : "—"); Row(c, "दर", Money(d.CalculatedRate)); Row(c, "अंतिम रक्कम", Money(d.FeeAmount));
+            Row(c, "स्थिती", d.Status); Row(c, "शुल्क स्थिती", d.PaymentStatus);
+        }
+
+        public byte[] Acknowledgement(ApplicationDetail d, PermitConfigRecord cfg)
+        {
+            return Render("अर्ज पोचपावती (Acknowledgement)", cfg, Ref(d, "ACK"), c =>
+            {
+                c.Item().PaddingBottom(8).Text("आपला मागणी अर्ज प्राप्त झाला आहे. खालील तपशील नोंदवला आहे.");
+                Core(c, d);
+                Row(c, "सादर दिनांक", d.SubmittedAt.HasValue ? Local(d.SubmittedAt.Value) : "—");
+                c.Item().PaddingTop(12).Text("अर्जाची स्थिती तपासण्यासाठी अर्ज क्रमांक वापरा.").FontSize(9);
+            });
+        }
+
+        public byte[] SubmittedApplication(ApplicationDetail d, PermitConfigRecord cfg)
+        {
+            return Render("सादर केलेला मागणी अर्ज", cfg, Ref(d, "APP"), c =>
+            {
+                Core(c, d);
+                Row(c, "मोबाईल", d.Mobile); Row(c, "ई-मेल", d.Email); Row(c, "GST क्रमांक", string.IsNullOrWhiteSpace(d.GstNumber) ? "—" : d.GstNumber);
+                Row(c, "कायमचा पत्ता", d.PermanentAddress); Row(c, "पत्रव्यवहाराचा पत्ता", d.CorrespondenceAddress);
+                Row(c, "राज्य / जिल्हा", d.State + " / " + d.District); Row(c, "शहर / तालुका / पिन", d.City + " / " + d.Taluka + " / " + d.PinCode);
+                Row(c, "झोन", d.Zone); Row(c, "जागेचे ठिकाण", d.Location); Row(c, "वर्णन", d.ServiceDescription);
+                Row(c, "जोडलेली कागदपत्रे", string.Join(", ", d.Documents.Select(x => x.DocumentType)));
+            });
+        }
+
+        public byte[] Receipt(ApplicationDetail d, PermitConfigRecord cfg)
+        {
+            var paid = d.History.Where(h => h.Action == AuditActions.PaymentDone).ToList();
+            var paidAt = paid.Count == 0 ? (DateTime?)null : paid[paid.Count - 1].AtUtc;
+            return Render("शुल्क पावती (Payment Receipt)", cfg, Ref(d, "RCT"), c =>
+            {
+                Row(c, "अर्ज क्रमांक", d.ApplicationNumber); Row(c, "अर्जदार", d.ApplicantName); Row(c, "सेवा", d.ServiceType);
+                Row(c, "भरलेली रक्कम", Money(d.PayableAmount > 0 ? (decimal?)d.PayableAmount : d.FeeAmount)); Row(c, "UTR / पावती क्रमांक", d.PaymentReference);
+                Row(c, "भरणा दिनांक", paidAt.HasValue ? Local(paidAt.Value) : "—"); Row(c, "शुल्क स्थिती", d.PaymentStatus);
+                c.Item().PaddingTop(12).Text("ही पावती संगणकाद्वारे तयार केली आहे.").FontSize(9);
+            });
+        }
+
+        public byte[] Certificate(ApplicationDetail d, PermitConfigRecord cfg, List<string> terms, string approvedBy)
+        {
+            var approved = d.History.Where(h => h.Action == AuditActions.FinalApproved).ToList();
+            return Render(string.IsNullOrWhiteSpace(cfg.CertificateTitle) ? "परवानगी पत्र" : cfg.CertificateTitle, cfg, Ref(d, "CRT"), c =>
+            {
+                c.Item().PaddingBottom(8).Text("खालील अर्जास सोलापूर महानगरपालिकेमार्फत परवानगी देण्यात येत आहे.");
+                Core(c, d);
+                Row(c, "मंजुरी दिनांक", approved.Count == 0 ? "—" : Local(approved[approved.Count - 1].AtUtc));
+                if (terms != null && terms.Count > 0)
+                {
+                    c.Item().PaddingTop(10).Text("अटी व शर्ती").Bold();
+                    for (var i = 0; i < terms.Count; i++) c.Item().Text((i + 1) + ". " + terms[i]).FontSize(10);
+                }
+                c.Item().PaddingTop(30).AlignRight().Text(string.IsNullOrWhiteSpace(cfg.AuthorityDesignation) ? "सहाय्यक आयुक्त" : cfg.AuthorityDesignation).Bold();
+                c.Item().AlignRight().Text(approvedBy ?? string.Empty).FontSize(9);
+            });
+        }
+    }
+}

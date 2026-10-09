@@ -1,0 +1,45 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMC.BhoomiMalmatta.Web", "SMC.BhoomiMalmatta.Web\SMC.BhoomiMalmatta.Web.csproj", "{6A1B2C3D-0004-4A5B-9C04-A1B2C3D4E504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMC.BhoomiMalmatta.Business", "SMC.BhoomiMalmatta.Business\SMC.BhoomiMalmatta.Business.csproj", "{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMC.BhoomiMalmatta.Data", "SMC.BhoomiMalmatta.Data\SMC.BhoomiMalmatta.Data.csproj", "{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMC.BhoomiMalmatta.Models", "SMC.BhoomiMalmatta.Models\SMC.BhoomiMalmatta.Models.csproj", "{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMC.BhoomiMalmatta.Tests", "SMC.BhoomiMalmatta.Tests\SMC.BhoomiMalmatta.Tests.csproj", "{6A1B2C3D-0005-4A5B-9C05-A1B2C3D4E505}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A1B2C3D-0004-4A5B-9C04-A1B2C3D4E504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1B2C3D-0004-4A5B-9C04-A1B2C3D4E504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1B2C3D-0004-4A5B-9C04-A1B2C3D4E504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1B2C3D-0004-4A5B-9C04-A1B2C3D4E504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1B2C3D-0005-4A5B-9C05-A1B2C3D4E505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1B2C3D-0005-4A5B-9C05-A1B2C3D4E505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1B2C3D-0005-4A5B-9C05-A1B2C3D4E505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1B2C3D-0005-4A5B-9C05-A1B2C3D4E505}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

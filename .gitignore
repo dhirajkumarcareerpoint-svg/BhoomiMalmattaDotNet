@@ -1,0 +1,27 @@
+# Build output and tooling
+bin/
+obj/
+.vs/
+packages/
+TestResults/
+*.user
+*.suo
+.scratch-*/
+# Runtime data (never commit)
+logs/
+*.log
+Uploads/
+App_Data/secrets.config
+App_Data/*.mdf
+# Secrets and certificates
+*.pfx
+*.snk
+*.key
+*.publishsettings
+appsettings.*.local.json
+
+# personal / secret files
+SMC.BhoomiMalmatta.Web/Content/payment/qr.*
+SMC.BhoomiMalmatta.Web/App_Data/secrets.config
+*.pfx
+*.bak

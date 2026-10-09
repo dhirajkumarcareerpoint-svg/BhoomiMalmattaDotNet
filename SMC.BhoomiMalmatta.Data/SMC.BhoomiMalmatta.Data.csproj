@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A1B2C3D-0003-4A5B-9C03-A1B2C3D4E503}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SMC.BhoomiMalmatta.Data</RootNamespace>
+    <AssemblyName>SMC.BhoomiMalmatta.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>7.3</LangVersion>
+    <Deterministic>true</Deterministic>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework"><Version>6.4.4</Version></PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Repositories\PropertyRegisterStore.cs" />
+    <Compile Include="Mappings\AllocationProcessMap.cs" />
+    <Compile Include="Mappings\ApplicationNumberConfigurationMap.cs" />
+    <Compile Include="Mappings\AuditLogMap.cs" />
+    <Compile Include="Mappings\CalculationMap.cs" />
+    <Compile Include="Mappings\ComplaintMap.cs" />
+    <Compile Include="Mappings\DemandApplicationDocumentMap.cs" />
+    <Compile Include="Mappings\DemandApplicationMap.cs" />
+    <Compile Include="Mappings\DemandApplicationWorkflowMap.cs" />
+    <Compile Include="Mappings\DemandApplicationZoneDocumentMap.cs" />
+    <Compile Include="Mappings\DemandApplicationZoneWorkflowMap.cs" />
+    <Compile Include="Mappings\DemandBusinessTypeMap.cs" />
+    <Compile Include="Mappings\DemandServiceMap.cs" />
+    <Compile Include="Mappings\DemandServiceRateMap.cs" />
+    <Compile Include="Mappings\DocumentMap.cs" />
+    <Compile Include="Mappings\GalaTransferDocumentMap.cs" />
+    <Compile Include="Mappings\GalaTransferMap.cs" />
+    <Compile Include="Mappings\GalaTransferRateMap.cs" />
+    <Compile Include="Mappings\LandRegistrationMap.cs" />
+    <Compile Include="Mappings\LeaseMap.cs" />
+    <Compile Include="Mappings\MasterDataMap.cs" />
+    <Compile Include="Mappings\PermitConfigurationMap.cs" />
+    <Compile Include="Mappings\PermitTermMap.cs" />
+    <Compile Include="Mappings\PropertyMap.cs" />
+    <Compile Include="Mappings\RecoveryCaseMap.cs" />
+    <Compile Include="Mappings\SchemeApplicationMap.cs" />
+    <Compile Include="Mappings\SmsEventMap.cs" />
+    <Compile Include="Mappings\SmsTemplateMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ApplicationNumberStore.cs" />
+    <Compile Include="Repositories\AuditWriter.cs" />
+    <Compile Include="Repositories\DemandApplicationStore.cs" />
+    <Compile Include="Repositories\MasterDataRepository.cs" />
+    <Compile Include="Repositories\ServiceMasterCache.cs" />
+    <Compile Include="Repositories\QueryService.cs" />
+    <Compile Include="Repositories\RegisterStore.cs" />
+    <Compile Include="Repositories\SmsEventStore.cs" />
+    <Compile Include="Repositories\UserStore.cs" />
+    <Compile Include="Repositories\ZoneWorkflowStore.cs" />
+    <Compile Include="Safety\DatabaseSafety.cs" />
+    <Compile Include="SmcDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Models\SMC.BhoomiMalmatta.Models.csproj"><Project>{6A1B2C3D-0001-4A5B-9C01-A1B2C3D4E501}</Project><Name>SMC.BhoomiMalmatta.Models</Name></ProjectReference>
+    <ProjectReference Include="..\SMC.BhoomiMalmatta.Business\SMC.BhoomiMalmatta.Business.csproj"><Project>{6A1B2C3D-0002-4A5B-9C02-A1B2C3D4E502}</Project><Name>SMC.BhoomiMalmatta.Business</Name></ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

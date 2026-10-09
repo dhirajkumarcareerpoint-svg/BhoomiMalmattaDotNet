@@ -1,0 +1,36 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Auth.Master.cs" Inherits="SMC.BhoomiMalmatta.Web.AuthMaster" %>
+<!DOCTYPE html>
+<html lang="mr">
+<head runat="server">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>सोलापूर महानगरपालिका - भूमी व मालमत्ता व्यवस्थापन प्रणाली</title>
+  <link href="~/Content/css/site.css" rel="stylesheet" runat="server" />
+  <link href="~/Content/css/app.css" rel="stylesheet" runat="server" />
+</head>
+<body>
+<form id="form1" runat="server">
+  <div class="lg">
+    <div class="L">
+      <div class="top">
+        <div class="brand">
+          <span class="emb" aria-hidden="true">🏛</span>
+          <div><div class="bt">सोलापूर महानगरपालिका</div><div class="bs">Solapur Municipal Corporation</div></div>
+        </div>
+      </div>
+      <h1>भूमी व मालमत्ता<br />व्यवस्थापन प्रणाली</h1>
+      <p class="lead">मागणी अर्ज सादर करा, अर्जाची स्थिती तपासा आणि अधिकृत परवानगी पत्र डाउनलोड करा.</p>
+      <div class="ft"><i aria-hidden="true">📝</i><div><b>ऑनलाइन मागणी अर्ज</b><span>कागदपत्रांसह सुरक्षितपणे सादर करा</span></div></div>
+      <div class="ft"><i aria-hidden="true">🔎</i><div><b>स्थिती व इतिहास</b><span>प्रत्येक टप्प्यावरील कार्यवाही पहा</span></div></div>
+      <div class="cp">© सोलापूर महानगरपालिका</div>
+    </div>
+    <div class="R">
+      <div class="box">
+        <asp:Panel ID="pnlNotice" runat="server" Visible="false" role="alert"><asp:Literal ID="litNotice" runat="server" /></asp:Panel>
+        <asp:ContentPlaceHolder ID="cphMain" runat="server" />
+      </div>
+    </div>
+  </div>
+</form>
+</body>
+</html>
