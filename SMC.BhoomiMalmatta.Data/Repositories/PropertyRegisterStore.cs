@@ -54,6 +54,14 @@ namespace SMC.BhoomiMalmatta.Data.Repositories
                 .Select(x => new MasterOptionRow { Key = x.Key, MarathiName = x.MarathiName, EnglishName = x.EnglishName, DisplayOrder = x.DisplayOrder });
         }
 
+        /// <summary>Rows of every group starting with <paramref name="groupPrefix"/> (LIKE 'prefix%', wildcards escaped by EF6); GroupName is kept to tell the groups apart.</summary>
+        internal static IQueryable<MasterOptionRow> MasterPrefixQuery(SmcDbContext db, string groupPrefix)
+        {
+            return db.MasterData.AsNoTracking().Where(x => x.GroupName.StartsWith(groupPrefix) && x.IsActive && !x.IsDeleted)
+                .OrderBy(x => x.GroupName).ThenBy(x => x.DisplayOrder).ThenBy(x => x.Id)
+                .Select(x => new MasterOptionRow { Id = x.Id, GroupName = x.GroupName, IsActive = true, IsDeleted = false, Key = x.Key, MarathiName = x.MarathiName, EnglishName = x.EnglishName, DisplayOrder = x.DisplayOrder });
+        }
+
         internal static IQueryable<string> DistinctQuery(SmcDbContext db, PropertyColumn column)
         {
             var rows = db.Properties.AsNoTracking().Where(x => !x.IsDeleted);
@@ -115,6 +123,13 @@ namespace SMC.BhoomiMalmatta.Data.Repositories
         }
 
         public List<MasterOptionRow> MasterRows(string groupName) { using (var db = new SmcDbContext()) return MasterQuery(db, groupName).ToList(); }
+        /// <summary>A blank prefix would match every group, so it returns nothing without a query.</summary>
+        public List<MasterOptionRow> MasterRowsWithPrefix(string groupPrefix)
+        {
+            if (string.IsNullOrWhiteSpace(groupPrefix)) return new List<MasterOptionRow>();
+            using (var db = new SmcDbContext()) return MasterPrefixQuery(db, groupPrefix).ToList();
+        }
+
         public List<string> DistinctInUse(PropertyColumn column) { using (var db = new SmcDbContext()) return DistinctQuery(db, column).ToList(); }
 
         public Dictionary<string, int> DependentCounts(int id)

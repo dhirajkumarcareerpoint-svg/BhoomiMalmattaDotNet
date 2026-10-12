@@ -32,6 +32,18 @@ namespace SMC.BhoomiMalmatta.Tests
             List<MasterOptionRow> rows; return Groups.TryGetValue(groupName, out rows) ? rows.OrderBy(x => x.DisplayOrder).ToList() : new List<MasterOptionRow>();
         }
 
+        public List<MasterOptionRow> MasterRowsWithPrefix(string groupPrefix)
+        {
+            MasterCalls++;
+            if (ThrowMaster) throw new InvalidOperationException("master down");
+            if (string.IsNullOrWhiteSpace(groupPrefix)) return new List<MasterOptionRow>();
+            return Groups.Where(g => g.Key.StartsWith(groupPrefix, StringComparison.Ordinal)).OrderBy(g => g.Key, StringComparer.Ordinal)
+                .SelectMany(g => g.Value.OrderBy(x => x.DisplayOrder).ThenBy(x => x.Id).Select(x => new MasterOptionRow
+                {
+                    Id = x.Id, GroupName = g.Key, IsActive = x.IsActive, IsDeleted = x.IsDeleted, Key = x.Key, MarathiName = x.MarathiName, EnglishName = x.EnglishName, DisplayOrder = x.DisplayOrder
+                })).ToList();
+        }
+
         public List<string> DistinctInUse(PropertyColumn column)
         {
             InUseCalls++;
@@ -480,6 +492,38 @@ namespace SMC.BhoomiMalmatta.Tests
                 }
                 StringAssert.Contains(deps["Complaints"].ToString(), "TR_CFC_Complaints");
             }
+        }
+
+        [TestMethod]
+        public void Master_Prefix_Query_Translates_To_Like_With_Filters_Order_And_Only_Needed_Columns()
+        {
+            SqlConnection connection;
+            using (var db = OfflineContext(out connection))
+            using (connection)
+            {
+                var sql = PropertyRegisterStore.MasterPrefixQuery(db, "Prabhag_").ToString();
+                StringAssert.Contains(sql, "MR_AST_MasterData");
+                Assert.IsTrue(Regex.IsMatch(sql, @"\[GroupName\] LIKE"), sql);
+                StringAssert.Contains(sql, "[IsActive]");
+                StringAssert.Contains(sql, "[IsDeleted]");
+                Assert.IsTrue(Regex.IsMatch(sql, @"ORDER BY .*\[GroupName\].*\[DisplayOrder\].*\[Id\]", RegexOptions.Singleline), sql);
+                foreach (var col in new[] { "[Description]", "[Shera]", "[CreatedBy]", "[CreatedAt]", "[UpdatedAt]", "[DeletedAt]" })
+                    Assert.IsFalse(sql.Contains(col), col + " must not be selected: " + sql);
+            }
+            Assert.AreEqual(0, new PropertyRegisterStore().MasterRowsWithPrefix("  ").Count, "a blank prefix must not match every group");
+        }
+
+        [TestMethod]
+        public void Fake_Prefix_Source_Returns_Matching_Groups_In_Order()
+        {
+            var src = new FakePropertyOptionSource();
+            src.Groups["Prabhag_Zone2"] = new List<MasterOptionRow> { new MasterOptionRow { Key = "P21", DisplayOrder = 2 }, new MasterOptionRow { Key = "P20", DisplayOrder = 1 } };
+            src.Groups["Prabhag_Zone1"] = new List<MasterOptionRow> { new MasterOptionRow { Key = "P10", DisplayOrder = 1 } };
+            src.Groups["PropertyCategory"] = new List<MasterOptionRow> { new MasterOptionRow { Key = "MajorGaale", DisplayOrder = 1 } };
+            var rows = src.MasterRowsWithPrefix("Prabhag_");
+            CollectionAssert.AreEqual(new[] { "P10", "P20", "P21" }, rows.Select(x => x.Key).ToArray());
+            CollectionAssert.AreEqual(new[] { "Prabhag_Zone1", "Prabhag_Zone2", "Prabhag_Zone2" }, rows.Select(x => x.GroupName).ToArray());
+            Assert.AreEqual(0, src.MasterRowsWithPrefix("").Count);
         }
 
         [TestMethod]
